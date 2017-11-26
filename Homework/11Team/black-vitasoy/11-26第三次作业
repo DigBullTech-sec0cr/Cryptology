@@ -1,0 +1,31 @@
+##凯撒密码
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+	char passwd[100],encrypted[100];
+	int i;
+	int k;
+	int t;
+	int move;
+		printf("Enter message to be encrypted: ");
+		gets(passwd);
+		for(move = 0; move <26;move++){
+		
+		for(i=0;i<strlen(passwd);i++){
+			if(passwd[i] >= 'A' && passwd[i] <='Z'){
+				passwd[i] = ((passwd[i] - 'A') + move)%26 + 'A';
+				
+			}
+			else if(passwd[i] >= 'a' && passwd[i] <= 'z'){
+				passwd[i] = ((passwd[i] - 'a')+ move)%25 + 'a';
+			}
+		}
+		printf("%s",passwd);
+		printf("\n");
+	}
+	return 0;
+}
+```
+发现遍历之后,虽然有的很像了,但总体找不出来,只能发现一个大概
