@@ -10,7 +10,9 @@
 >DA RZY LVPWMZRA MEX AEG JLT SYLX RZWB PA QSWYTX W LP WPNSYBBYX FYSA KYVV XETY AEGS BEVGRWET UYA WB BZSYZBVPXQZQ RZWB VWRRVY JZLVVYTMY KLB TER REE ZLSX KLB WR
 
 #### 答案
->暂时不明
+>BY THE ALMIGHTY GOD YOU CAN READ THIS MY FRIEND I AM IMPRESSED VERY WELL DONE YOUR SOLUTION KEY IS SHREHSLMDFHF THIS LITTLE CHALLENGE WAS NOT TOO HARD WAS IT
+
+#### <a href="https://quipqiup.com/">在线解密网址。。。</a>
 
 #### 3.获取下面简单置换码中的KEY值
 >oWdnreuf.lY uoc nar ae dht eemssga eaw yebttrew eh nht eelttre sra enic roertco drre . Ihtni koy uowlu dilekt  oes eoyrup sawsro don:wf nsedergmam.r
