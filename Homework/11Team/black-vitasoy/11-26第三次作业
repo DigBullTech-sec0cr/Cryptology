@@ -1,31 +1,32 @@
-##凯撒密码
-```
-#include <stdio.h>
-#include <string.h>
+## 凯撒密码
+1. 加密,明文+秘钥(3)
+2. 解密,密文反向操作秘钥(3)
 
-int main(){
-	char passwd[100],encrypted[100];
-	int i;
-	int k;
-	int t;
-	int move;
-		printf("Enter message to be encrypted: ");
-		gets(passwd);
-		for(move = 0; move <26;move++){
-		
-		for(i=0;i<strlen(passwd);i++){
-			if(passwd[i] >= 'A' && passwd[i] <='Z'){
-				passwd[i] = ((passwd[i] - 'A') + move)%26 + 'A';
-				
-			}
-			else if(passwd[i] >= 'a' && passwd[i] <= 'z'){
-				passwd[i] = ((passwd[i] - 'a')+ move)%25 + 'a';
-			}
-		}
-		printf("%s",passwd);
-		printf("\n");
-	}
-	return 0;
-}
-```
-发现遍历之后,虽然有的很像了,但总体找不出来,只能发现一个大概
+## 简单替换密码
+
+- 将明文按照字母表进行加密,然后解密也是对照字母表进行解密,要求双方都有表
+
+## 置换密码,明文和密文字母不变,只是顺序有所变化
+- 栅栏密码是置换密码的一种,就是设定n,然后依次分成n组,然后再按每组的第一位,第二位取出来,再组合
+1. gu an gu an ju ji uz ai he zh iz ho u
+2. 提取第一个字符：gagajjuahzihu
+3. 提取第二个字符：ununuiziehzo
+4. 两串字符连接就是密文：gagajjuahzihuununuiziehzo
+
+## 测验习题
+
+1. 这个慢慢试就可试出来了,是17
+	che quick brown fox jumps over the lazy dog of caesar and your unique solution i
+	s prmspfgmrbir
+2. 这个简单替换密码只能百度了: key = 22
+	DA RZY LVPWMZRA MEX AEG JLT SYLX RZWB PA QSWYTX W LP WPNSYBBYX FYSA KYVV XETY AEGS BEVGRWET UYA WB BZSYZBVPXQZQ RZWB VWRRVY JZLVVYTMY KLB TER REE ZLSX KLB WR
+
+	BY THE ALMIGHTY GOD YOU CAN READ THIS MY FRIEND I AM IMPRESSED VERY WELL DONE YOUR SOLUTION KEY IS SHREHSLMDFHF THIS LITTLE CHALLENGE WAS NOT TOO HARD WAS IT
+3.  这个看不出来
+4.  去掉空格: guanguanjujiuzaihezhizhou
+然后三三为一组 gua ngu anj uji uza ihe zhi zho u
+ | 第一组    | 第二组   | 第三组    |
+ | :---:   | :---:  | : ---:   |
+ |gnauuizzu | ugnjzhhh | aujiaeio |
+
+合并: gnauuizzuugnjzhhhaujiaeio
