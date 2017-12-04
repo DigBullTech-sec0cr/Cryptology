@@ -1,0 +1,77 @@
+进制表示：B（Binary）二进制、O（Otcal）表示八进制、D（Decimal）表示十进制。
+ 
+ 
+1. 包含小数的进制换算：
+(ABC.8C)H=10x16^2+11x16^1+12x16^0+8x16^-1+12x16^-2
+=2560+176+12+0.5+0.046875
+=(2748.546875)D
+
+逻辑运算：
+逻辑加：或“+”
+逻辑乘：按位求“与”
+逻辑异：按位“加”（相同为0.相异为1）
+小测验：
+1.	时钟用的60进制。
+2.	1111000010.01101转化为八进制：1702.52、十六进制：0x3C2.68
+3.	十进制137.5转化为二进制1001.10、八进制为211.5
+密码学基础（二）
+一、	加密、解密、密钥与密码破译
+明文由密钥加密后得到密文，再用密钥解密得到明文
+二、	对称加密与公钥加密
+对称密码：加密解密使用同一密钥。
+非对称密码（公钥密码）：加密解密使用不同密钥。
+混合密码系统：对称密钥的解密速度较快，但没有公钥密码安全，相反，公钥密码的解密耗费成本大。
+所以使用混合密码系统（自己的理解）：Bob将自己的公钥发给Alice，Alice用这个公钥将自己对称密码的密钥发给Bob，只有Bob能解密。接下来就只需要用对称密钥相互通信了
+三、	古典密码
+3.1	凯撒密码：数字的平移进行加密，而字母表只有26个字母，也就是说一共只有0-25（26）个密钥，可以用暴力破解将26个密钥都试一遍，借助网上的工具完成。
+3.2	代码（C语言）
+4.	#include <stdio.h>
+5.	#include <string.h>
+6.	
+7.	int main()
+8.	{
+9.	    char passwd[100],encrypted[100];
+10.	    int i;
+11.	    int k;
+12.	    int t;
+13.	    int move;
+14.	    while(1)
+15.	    {
+16.	        printf("Enter message to be encrypted:");
+17.	        gets(passwd);
+18.	        printf("Enter shift amount(0-25):");
+19.	        scanf("%d%*c",&move);
+20.	        for(i=0; i<strlen(passwd);i++)
+21.	        {
+22.	            if(passwd[i] >= 'A' && passwd[i] <= 'Z')
+23.	            {
+24.	                passwd[i] = ((passwd[i]-'A')+move)%26+'A';
+25.	            }
+26.	            else if(passwd[i] >= 'a' && passwd[i] <= 'z')
+27.	            {
+28.	                passwd[i] = ((passwd[i]-'a')+move)%26+'a';
+29.	            }
+30.	        }
+31.	        printf("%s",passwd);
+32.	        printf("\n");
+33.	        break;
+34.	
+35.	    }
+36.	    return 0;
+37.	}
+3.2	简单替换密码：事先规定一份通信双方都知道的替换字母表，相当于密钥，解密时只需要反向替换。
+3.3	置换密码（换位密码）：明文密文的字母相同。
+3.4 栅栏密码
+再举个栗子 明文：guan guan ju jiu zai he zhi zhou;
+去掉空格分成两两一组（2栏的栅栏加密，秘钥为2）：gu an gu an ju ji uz ai he zh iz ho u ;最后一组不足两个可以补上任意字母或空格。
+提取第一个字符：gagajjuahzihu;
+提取第二个字符：ununuiziehzo;
+两串字符连接就是密文：gagajjuahzihuununuiziehzo;
+g . a . g . a . j . j . u . a . h . z . i . h . u . u . n . u . n . u . i . z . i . e . h . z . o .
+小测验：
+
+1.	利用工具，解密密钥为10
+密文：
+明文：the quick brown fox jumps over the lazy dog of caesar and your unique solution is prmspfgmrbir
+这句话中几乎出现了所有的字母
+DA RZY LVPWMZRA MEX AEG JLT SYLX RZWB PA QSWYTX W LP WPNSYBBYX FYSA KYVV XETY AEGS BEVGRWET UYA WB BZSYZBVPXQZQ RZWB VWRRVY JZLVVYTMY KLB TER REE ZLSX KLB WR
